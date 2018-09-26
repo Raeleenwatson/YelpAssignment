@@ -16,6 +16,14 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let searchBar:UISearchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.backgroundColor = UIColor.red
+        searchBar.placeholder = "Restaurants"
+        searchBar.setPositionAdjustment(UIOffset(horizontal: 100, vertical: 0), for: .search)
+
+        navigationItem.titleView = searchBar
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,7 +55,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
          */
         
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if businesses != nil {
             return businesses!.count
